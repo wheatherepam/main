@@ -10,5 +10,5 @@ Model
                      console.log( status + " error" );
                  })
 
--
+-Почему в коллекции лодашовский forEach?
 */
