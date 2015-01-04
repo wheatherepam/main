@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+h1,
+h2,
+h3,
+p {
+  font-family: "PTSuns Narrow";
+}
+.fll {
+  float: left;
+}
+.flr {
+  float: right;
+}
+.slider-sq .runner-s {
+  margin-top: -3px;
+  margin-left: 10px;
+  position: absolute;
+  height: 11px;
+  width: 110px;
+  background: #ffffff;
+  z-index: 0;
+}
+.slider-sq .strike-s {
+  display: block;
+  width: 100%;
+  height: 3px ;
+  background: #464859;
+  z-index: 1;
+}
+.slider-circ {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.slider-circ .slid-wrap-c .runner-c {
+  display: block;
+  width: 100%;
+  height: 3px ;
+  background: #464859;
+  z-index: 1;
+}
+.slider-circ .slid-wrap-c .strike-c {
+  margin-top: -15px;
+  margin-left: 10px;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  z-index: 0;
+}
+#wrap {
+  background: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+main {
+  float: left;
+  padding-right: 70px;
+}
+.refresh-wrap {
+  margin-left: 19px;
+  padding-top: 9px;
+  display: table;
+}
+.refresh-wrap .update-time {
+  font-size: 30px;
+  color: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+}
+.refresh-wrap .ref-icon {
+  font-family: "Sunny";
+  font-size: 50px;
+  display: table-cell;
+  vertical-align: middle;
+  position: absolute;
+  top: 6px;
+}
+#module-wrap #main-module {
+  width: 69%;
+  margin-left: 19px;
+  margin-bottom: 20px;
+  display: table-cell;
+  padding-right: 20px;
+}
+#module-wrap #add-module {
+  width: 58%;
+  display: table-cell;
+  padding-left: 40px;
+}
+.main-add-info .curt-place {
+  font-size: 75px;
+  text-transform: uppercase;
+  letter-spacing: 20px;
+}
+.main-add-info .date-wrap .cur-day {
+  font-size: 40px;
+}
+.main-add-info .date-wrap .cur-dat {
+  font-size: 40px;
+  margin-left: 28px;
+  text-transform: uppercase;
+}
+.main-info {
+  overflow: hidden;
+  border-bottom: 3px solid #464859;
+  padding-bottom: 21px;
+  padding-top: 46px;
+}
+.cur-weather {
+  display: inline-block;
+  overflow: hidden;
+}
+.cur-weather .cur-weath-icon {
+  font-size: 170px;
+}
+.cur-weather .cur-ent-temp .cur-sign {
+  font-size: 100px;
+}
+.cur-weather .cur-ent-temp .cur-val {
+  font-size: 100px;
+}
+.cur-weather .cur-ent-temp .cur-measur {
+  font-size: 100px;
+}
+.cur-weather .cur-weather {
+  font-size: 20px;
+}
+.cur-moon {
+  width: 70px;
+  float: right;
+  margin-right: 33px;
+  margin-top: 20px;
+}
+.cur-moon .cur-moon-phase {
+  font-size: 80px;
+}
+.cur-moon .cur-moon-rise {
+  font-size: 30px;
+}
+.cur-whole-day {
+  padding-top: 31px;
+}
+.wheather-by-hours {
+  overflow: hidden;
+}
+.cur-by-hourse {
+  margin-bottom: 40px;
+  width: 150px;
+}
+.cur-by-hourse .cur-per-hour {
+  font-size: 20px;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.cur-by-hourse .cur-per-wheather {
+  font-size: 70px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.cur-by-hourse .cur-per-temp-bh {
+  text-align: center;
+}
+.cur-by-hourse .cur-per-temp-bh .cur-sign-bh {
+  font-size: 40px;
+}
+.cur-by-hourse .cur-per-temp-bh .cur-val-bh {
+  font-size: 40px;
+}
+.cur-by-hourse .cur-per-temp-bh .cur-measur-bh {
+  font-size: 40px;
+}
+.other-opt {
+  overflow: hidden;
+  padding-top: 60px;
+}
+.oth {
+  display: table;
+  width: 150px;
+}
+.oth .oth-font1 {
+  font-size: 70px;
+  display: table-row;
+  text-align: center;
+}
+.oth .oth-font2 {
+  font-size: 40px;
+  display: table-row;
+  text-align: center;
+}
+.week-day {
+  border-bottom: 3px solid #6b6d7a;
+  padding-bottom: 20px;
+}
+.week-day .day-name {
+  font-size: 35px;
+}
+.week-day .day-icon {
+  font-size: 50px;
+  margin-left: 22px;
+}
+.week-day .day-temp {
+  font-size: 35px;
+  display: inline-block;
+}
+.week-day .day-temp .min-temp {
+  display: inline-block;
+}
+.week-day .day-temp .temp-strike {
+  display: inline-block;
+  width: 131px;
+  border-radius: 10px;
+  height: 25px;
+  background: white;
+}
+.week-day .day-temp .max-temp {
+  display: inline-block;
+}
+.settings {
+  width: 30%;
+  padding-left: 10px;
+  padding-top: 20px;
+  display: table-cell;
+  float: right;
+}
+.add-drop-town {
+  overflow: hidden;
+  border-bottom: 3px solid #6b6d7a;
+  padding-bottom: 1em;
+}
+.add-drop-town .hide-menu {
+  font-size: 40px;
+}
+.add-drop-town #search {
+  margin-left: 4% ;
+  width: 64%;
+  border-radius: 12px;
+  height: 3em;
+}
+.add-drop-town .add-drop-wrap {
+  margin-right: 10%;
+}
+.add-drop-town .add-drop-wrap .add-place {
+  font-size: 40px;
+}
+.add-drop-town .add-drop-wrap .remove-place {
+  font-size: 40px;
+}
+.changed-places {
+  padding-left: 15px;
+}
+.town-weather {
+  overflow: hidden;
+  border-bottom: 3px solid #505965;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.town-weather .town-weath-icon {
+  padding-right: 18px;
+  font-size: 70px;
+  color: #ffffff;
+  opacity: 0.5;
+}
+.town-weather .town-wrap-temp .town-temp {
+  font-size: 60px;
+  padding-right: 20px;
+}
+.town-weather .town-add-wrap {
+  display: table;
+}
+.town-weather .town-add-wrap .town-name {
+  font-size: 30px;
+  display: table-row;
+  text-align: left;
+}
+.town-weather .town-add-wrap .cur-weather {
+  font-size: 20px;
+  font-size: 30px;
+  display: table-row;
+  text-align: left;
+}
+.town-weather .wrap-check-box input {
+  width: 22px;
+  height: 22px;
+}
+.main-set .change-measure {
+  padding-top: 10px;
+  overflow: hidden;
+}
+.main-set .meas-wrap {
+  padding-bottom: 20px;
+  font-size: 40px;
+  opacity: 0.5;
+}
+.main-set .meas-wrap .chage-c {
+  border-right: 2px solid #505965;
+  padding-right: 36px;
+}
+.main-set .meas-wrap .change-f {
+  padding-left: 20px;
+}
+.main-set .set {
+  font-size: 40px;
+}
+.show-update-name {
+  font-size: 25px;
+  opacity: 0.25;
+}

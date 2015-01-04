@@ -1,0 +1,14 @@
+/*
+Model
+-Что делает  map = $('<div/>').get(0), в модели
+-Почему в _getDetails cделано поле options, куда и записывается id?
+-$.getJSON(url, function(data, status){
+                 self.forecast = data;
+                 console.log( status + " second success" );
+             })
+                 .fail(function(data, status) {
+                     console.log( status + " error" );
+                 })
+
+-
+*/
