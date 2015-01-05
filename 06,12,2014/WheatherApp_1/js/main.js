@@ -1,11 +1,15 @@
 require.config({
     baseUrl: 'js',
     paths: {
+        'Apikey':'app/Appikey',
         'jquery': 'libs/jquery-1.11.2',
         'lodash': 'libs/lodash',
         'text': 'libs/text',
         'sidebar':'utils/sidebar',
-        'Apikey':'app/Appikey'
+        'moment':'libs/moment',
+        'moment_tz':'libs/moment-timezone',
+        'promiseForecast':'components/board/Model/Forecast.js'
+        
     },
     shim: {
         'jquery': {

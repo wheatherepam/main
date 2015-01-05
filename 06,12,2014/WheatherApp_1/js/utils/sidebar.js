@@ -12,7 +12,7 @@ define('sidebar',['jquery'],function($){
             change.classList.toggle("rightmove");
         }
 
-        //var showhide = document.getElementsByClassName('hide-menu')[0];
+
         function Sidebar(){
             $('.hide-menu').click(function(){
                 changeHideMenuIcon();

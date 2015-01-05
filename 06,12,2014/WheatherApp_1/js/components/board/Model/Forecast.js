@@ -63,11 +63,6 @@ define(['Vendor',
 
                 //get city url
                 var url = Api.Appikey + this.cord.D + ',' + this.cord.k + Api.callback;
-                //
-                //var url='https://api.forecast.io/forecast/' + this.options.APIKEY + '/' +
-                //    + this.cord.D + ',' + this.cord.k + '?callback=?';
-
-                //connection to outer source
 
                 $.getJSON(url, function (data, status) {
                     self.forecast = data;

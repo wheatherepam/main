@@ -9,6 +9,7 @@ define(['Vendor',
 **/
 
     var _=Vendor._,
+        $= Vendor.$,
         Class=Vendor.util.Class,
         Model;
 
@@ -28,13 +29,9 @@ define(['Vendor',
 
             render:function(id,city){
 
-                var self=this;
-
-                    var forecast=new Forecast(id,city);
-
-
-
-                    var data=forecast.forecast;
+                var self=this,
+                    frc,
+                    data;
 
                 _(data).forEach(function(key){
                     var container=[],
@@ -42,10 +39,10 @@ define(['Vendor',
                         daily=key.daily;
 
 
-                    container.city=key.city,
-                    container.time;
-                    container.day;
-                    container.mounth;
+                    container.city=key.city;
+                    container.time=dateConvertor.time(key.forecast.timezone);
+                    container.day=daydateConvertor.day(key.forecast.timezone);
+                    container.month=dateConvertor.month(key.forecast.timezone);
                     container.moonPhase;
                     container.sunriseTime;
                     container.sunsetTime
@@ -61,38 +58,38 @@ define(['Vendor',
 
                     container.week=[
                         {
-                            //rename max and min
-                            max:parseInt(daily.data[0].temperatureMax),
-                            min:parseInt(daily.data[0].temperatureMin)
+
+                            maxTemp:parseInt(daily.data[0].temperatureMax),
+                            minTemp:parseInt(daily.data[0].temperatureMin)
                         },
                         {
-                            max:parseInt(daily.data[1].temperatureMax),
-                            min:parseInt(daily.data[1].temperatureMin)
+                            maxTemp:parseInt(daily.data[1].temperatureMax),
+                            minTemp:parseInt(daily.data[1].temperatureMin)
                         },
                         {
-                            max:parseInt(daily.data[2].temperatureMax),
-                            min:parseInt(daily.data[2].temperatureMin)
+                            maxTemp:parseInt(daily.data[2].temperatureMax),
+                            minTemp:parseInt(daily.data[2].temperatureMin)
                         },
                         {
-                            max:parseInt(daily.data[3].temperatureMax),
-                            min:parseInt(daily.data[3].temperatureMin)
+                            maxTemp:parseInt(daily.data[3].temperatureMax),
+                            minTemp:parseInt(daily.data[3].temperatureMin)
                         },
                         {
-                            max:parseInt(daily.data[4].temperatureMax),
-                            min:parseInt(daily.data[4].temperatureMin)
+                            maxTemp:parseInt(daily.data[4].temperatureMax),
+                            minTemp:parseInt(daily.data[4].temperatureMin)
                         },
                         {
-                            max:parseInt(daily.data[5].temperatureMax),
-                            min:parseInt(daily.data[5].temperatureMin)
+                            maxTemp:parseInt(daily.data[5].temperatureMax),
+                            minTemp:parseInt(daily.data[5].temperatureMin)
                         },
                         {
-                            max:parseInt(daily.data[6].temperatureMax),
-                            min:parseInt(daily.data[6].temperatureMin)
+                            maxTemp:parseInt(daily.data[6].temperatureMax),
+                            minTemp:parseInt(daily.data[6].temperatureMin)
                         }
                     ]
 
                     self.filterData.push(container);
-                    console.log(forecast);
+
 
                 });
                
