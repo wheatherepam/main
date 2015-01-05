@@ -1,0 +1,12 @@
+.town{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+.change{
+    background: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    width: 1em;
+    height: 1em;
+}
