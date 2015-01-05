@@ -1,0 +1,11 @@
+<li class="fav-place" data-code="<%= obj.id %>" style="height: 6em">
+    <div class="city-details ">
+        <span class="fav-city"><%= obj.city %></span>
+        <span class="add-info"><%= obj.country %></span>
+    </div>
+    <form action="">
+        <input id="<%= obj.city %>" class="city-picker" type="checkbox"/>
+        <label for="<%= obj.city %>"></label>
+    </form>
+</li>
+

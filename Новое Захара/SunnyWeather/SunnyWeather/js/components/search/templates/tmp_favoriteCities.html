@@ -1,0 +1,16 @@
+<li class="fav-place">
+    <div class="weather-block">
+        <span class="fcw-icon icon-sunny"></span>
+        <span class="fcw-temp"><%= obj.temp %></span>
+    </div>
+    <div class="city-details ">
+        <span class="fav-city"><%= obj.city %></span>
+        <span class="add-info">// <%= obj.summary %></span>
+    </div>
+    <form action="">
+        <label for="<%= obj.city %>">
+        <input id="<%= obj.city %>" class="city-picker" type="checkbox"/>
+        </label>
+    </form>
+</li>
+
