@@ -1,0 +1,71 @@
+<div id="<%= obj.city %>" class="component">
+    <div class="time-box">
+        <em><%= obj.time %></em><a class="icon-refresh"></a>
+    </div>
+    <!--Main block with chosen city and actual weather-->
+    <div class="today-block">
+        <div class="this-location">
+            <h2 class="current-city"><%= obj.city %></h2>
+            <h3 class="current-data"><%= obj.day %>, <%= obj.month %> <%= obj.tale %></h3>
+        </div>
+        <div class="actual-weather">
+            <span class="icon-<%= obj.crnt.icon %> current-icon"></span>
+            <div class="moon-box">
+                <span class="moon icon-almost-old"></span>
+                <em class="moon-face">6:20</em>
+            </div>
+            <div class="info-box">
+                <span class="temperature"><%= obj.crnt.temp %></span>
+                <span class="w-text">// <%= obj.crnt.summary %></span>
+            </div>
+        </div>
+        <div class="weather-info">
+            <div class="hours-holder">
+                <ul>
+                    <% _.each( obj.hourly, function( item ){ %>
+                    <li class="today-hours">
+                        <em><%= item.time %></em>
+                        <span class="icon-<%= item.icon %> hw-icon"></span>
+                        <span class="hw-temp"><%= item.temp %></span>
+                    </li>
+                    <% }); %>
+                </ul>
+                <div class="hw-slider-box"><span class="w-slider"></span></div>
+            </div>
+            <!--Third block with 4 weather indicators-->
+            <div class="indicators">
+                <ul>
+                    <li id="wet">
+                        <span class="icon-humidity ind-icon"></span>
+                        <span class="ind-value"> <%= obj.crnt.humidity %>%</span></li>
+                    <li class="wind-speed">
+                        <span class="icon-wind-direction ind-icon w-bearing" style="transform: rotate(<%= obj.crnt.wBearing %>deg);"></span>
+                        <span class="ind-value"><%= obj.crnt.wSpeed %></span></span>
+                    </li>
+                    <li id="sunrise">
+                        <span class="icon-sunrise ind-icon"></span>
+                        <em class="ind-value"><%= obj.crnt.sunRise %></em>
+                    </li>
+                    <li id="moonrise">
+                        <span class="icon-sunset ind-icon"></span>
+                        <em class="ind-value"><%= obj.crnt.sunSet %></em>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--Block with week days-->
+    <div class="days-block">
+        <ul class="days">
+            <% _.each( obj.week, function( item ){ %>
+            <li class="day mon today">
+                <span class="day-id"><%= item.day %></span>
+                <span class="dw-icon icon-<%= item.icon %>"></span>
+                <div class="ration-box">
+                    <span class="min-temp"><%= item.min %></span><span class="ratio-block"></span><span class="max-temp"><%= item.max %></span>
+                </div>
+            </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>

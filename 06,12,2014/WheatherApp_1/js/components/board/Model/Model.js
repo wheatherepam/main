@@ -1,6 +1,6 @@
 define(['Vendor',
-    './Forecast',
-    'utils/Convertor/dateConvertor'],function(Vendor,Forecast,dateConvertor){
+    './Forecast'
+   ],function(Vendor,Forecast){
 
     'use strict';
 
@@ -40,9 +40,9 @@ define(['Vendor',
 
 
                     container.city=key.city;
-                    container.time=dateConvertor.time(key.forecast.timezone);
-                    container.day=daydateConvertor.day(key.forecast.timezone);
-                    container.month=dateConvertor.month(key.forecast.timezone);
+                    container.time;//=dateConvertor.time(key.forecast.timezone);
+                    container.day;//=daydateConvertor.day(key.forecast.timezone);
+                    container.month;//=dateConvertor.month(key.forecast.timezone);
                     container.moonPhase;
                     container.sunriseTime;
                     container.sunsetTime

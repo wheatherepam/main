@@ -4,6 +4,8 @@ define('vendor/core',[
     'moment',
     'moment_tz'],function($,_,moment,moment_tz){
         'use strict';
+
+    debugger;
         return{
             '$':$,
             '_':_,

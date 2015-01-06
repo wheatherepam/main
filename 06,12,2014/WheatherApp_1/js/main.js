@@ -7,10 +7,9 @@ require.config({
         'text': 'libs/text',
         'sidebar':'utils/sidebar',
         'moment':'libs/moment',
-        'moment_tz':'libs/moment-timezone',
-        'promiseForecast':'components/board/Model/Forecast.js'
-        
+        'moment_tz':'libs/moment-timezone'
     },
+
     shim: {
         'jquery': {
             exports: '$'
