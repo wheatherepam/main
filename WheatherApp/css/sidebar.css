@@ -1,0 +1,8 @@
+.leftmove{
+    right:0 !important;
+    -webkit-transition: right 1s ease-out 0s;
+}
+.rightmove{
+    right:0 !important;
+    -webkit-transition: right 1s ease-out 0s;
+}
