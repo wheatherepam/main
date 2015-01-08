@@ -1,9 +1,8 @@
 define('components/settings/settingsView', [
     'Vendor',
     'text!./settingsTmpl.html',
-    'sidebar',
-    './settingsController'
-], function (Vendor, settingsTemplate, side) {
+
+], function (Vendor, settingsTemplate) {
     'use strict';
 
     var $ = Vendor.$,
@@ -30,7 +29,7 @@ define('components/settings/settingsView', [
             this.$holder = $(this.options.rootHolder);
             //Вставляем теиплейт в холдер
             this.$holder.append(this.tmpl({}));
-            side();
+
 
         }
 

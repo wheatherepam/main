@@ -1,7 +1,6 @@
 define('components/settings/settingsController',[
     './settingsView',
-    'Vendor',
-    'sidebar'],function(SettingsView,Vendor,side){
+    'Vendor'],function(SettingsView,Vendor){
     'use strict';
 
     var $=Vendor.$,
@@ -30,4 +29,4 @@ define('components/settings/settingsController',[
 
     return Settings;
 
-})
+});

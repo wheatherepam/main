@@ -20,10 +20,6 @@ define(['Vendor','./Model'],function(Vendor,Model){
             this.showItems=function(){
                 return this.colRep;
             }
-
-
-
-
     };
 
     //Collection=function(){
