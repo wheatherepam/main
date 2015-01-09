@@ -2,7 +2,7 @@ define('components/search/searchController',[
     './searchView',
     'Vendor',
     './Model/Model',
-    'sidebar'],function(SearchView,Vendor){
+    'sidebar'],function(SearchView,Vendor,Model){
     'use strict';
 
     var $=Vendor.$,
@@ -17,18 +17,38 @@ define('components/search/searchController',[
         defaultOptions:{},
 
         constructor:function(options){
-            console.log('work');
             this.options= _.extend({},this.defaultOptions,options);
             this.initialize();
 
         },
 
         initialize:function(){
+            this.render();
+        },
 
+        render:function(){
             this.view=new SearchView({rootHolder: this.options.rootHolder});
+            this.searchCites();
+        },
+
+       searchCites:function(){
+           var selfSearchCites=this;
+          $('#search').on('keyup',function(){
+
+              var str=$(this).val();
+              var places=new Model(str);
+              selfSearchCites.view.render(places);
 
 
-        }
+
+              //$.when(places.promise).then(function(){
+              //   selfSearchCites.cites=places;
+              //
+              //});
+
+          });
+       }
+
     });
 
   return Search;

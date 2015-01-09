@@ -3,7 +3,7 @@ define('components/search/searchView', [
     'text!./Templates/searchWrapperTemplate.html',
     'sidebar'
 
-], function (Vendor, searchTemplate, side) {
+], function (Vendor, mainModuleTemplate, side) {
     'use strict';
 
     var $ = Vendor.$,
@@ -19,7 +19,7 @@ define('components/search/searchView', [
 
             this.options = _.extend({}, this.defaultOptions, options);
 
-            this.tmpl = _.template(searchTemplate);
+            this.tmpl = _.template(mainModuleTemplate);
 
             this.initialize();
 
@@ -30,8 +30,8 @@ define('components/search/searchView', [
 
         },
 
-        render:function(){
-
+        render:function(data){
+           
             this.$holder = $(this.options.rootHolder);
 
             this.$holder.append(this.tmpl({}));
