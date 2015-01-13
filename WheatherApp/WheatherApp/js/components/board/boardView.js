@@ -25,18 +25,19 @@ define('components/board/boardView', [
         },
 
         initialize: function () {
-           this.render();
+
         },
 
         render:function(col){
+
+
             var selfRender=this;
             this.$holder = $(selfRender.options.rootHolder);
 
-
                 _(col).forEach(function(item,i){
-                    console.log(item.model);
                     selfRender.boardTempl = _.template(boardTemplate);
                     selfRender.$holder.append(selfRender.boardTempl(item));
+                    console.log(item)
                 });
 
 
@@ -46,8 +47,3 @@ define('components/board/boardView', [
   return BoardView;
 
 });
-/*
-$.when(col.promiseArr.every(function(num){return num>0})).then(function(){
-    selfInit.view.render(col.showItems());
-})
-*/

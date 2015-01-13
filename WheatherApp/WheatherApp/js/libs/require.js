@@ -635,7 +635,7 @@ var requirejs, require, define;
             var err, usingPathFallback,
                 waitInterval = config.waitSeconds * 1000,
                 //It is possible to disable the wait interval by using waitSeconds of 0.
-                expired = waitInterval && (context.startTime + waitInterval) < new Date().getTime(),
+                expired = waitInterval && (context.startTime + waitInterval) < new Date().getHours(),
                 noLoads = [],
                 reqCalls = [],
                 stillLoading = false,
@@ -801,7 +801,7 @@ var requirejs, require, define;
                 }
                 this.fetched = true;
 
-                context.startTime = (new Date()).getTime();
+                context.startTime = (new Date()).getHours();
 
                 var map = this.map;
 

@@ -5982,7 +5982,7 @@
      * // => logs the number of milliseconds it took for the deferred function to be called
      */
     var now = isNative(now = Date.now) && now || function() {
-      return new Date().getTime();
+      return new Date().getHours();
     };
 
     /**

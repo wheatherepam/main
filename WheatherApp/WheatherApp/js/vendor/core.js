@@ -1,11 +1,6 @@
-define('vendor/core',[
-    'jquery',
-    'lodash',
-   /* 'moment',
-    'moment_tz'*/],function($,_){
-        'use strict';
+define('vendor/core',['jquery', 'lodash'],function($,_){
 
-
+    'use strict';
         return {
             '$':$,
             '_':_

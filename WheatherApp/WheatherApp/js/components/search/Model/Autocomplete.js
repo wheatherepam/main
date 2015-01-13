@@ -23,7 +23,7 @@ define(['Vendor'],function(Vendor){
                     input:str
                 };
 
-            autoComplete = new google.maps.places.AutocompleteService();
+            autoComplete = new google.maps.places.AutocompleteService({types: ['(cities)']});
 
             autoComplete.getPlacePredictions( options, function(data, status){
                 if(status == "OK"){

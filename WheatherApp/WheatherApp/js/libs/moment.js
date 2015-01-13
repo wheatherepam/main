@@ -720,7 +720,7 @@
 
     function isValid(m) {
         if (m._isValid == null) {
-            m._isValid = !isNaN(m._d.getTime()) &&
+            m._isValid = !isNaN(m._d.getHours()) &&
                 m._pf.overflow < 0 &&
                 !m._pf.empty &&
                 !m._pf.invalidMonth &&

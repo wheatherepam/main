@@ -9,6 +9,7 @@ define('components/search/searchView', [
     var $ = Vendor.$,
         _ = Vendor._,
         Class =Vendor.util.Class,
+        EventBus=Vendor.util.EventBus,
         SearchView;
 
    SearchView = Class.extend({
@@ -23,7 +24,8 @@ define('components/search/searchView', [
         },
 
         initialize: function () {
-           this.render()
+            this.render();
+            this.sendQuery();
 
         },
 
@@ -35,37 +37,55 @@ define('components/search/searchView', [
             this.$holder;
 
             $('.town-weather').remove();
+            if(places){
+                var citeList=places.filterData;
+                citeList.forEach(function(key){
+                    selfRender.citeTeml= _.template(cityTemplate);
+                    selfRender.$holder.append(selfRender.citeTeml(key));
+                });
+            }
 
-            _(places).forEach(function(key){
-                selfRender.citeTeml= _.template(cityTemplate);
-                selfRender.$holder.append(selfRender.citeTeml(key));
-            });
 
 
             side();
+            this.startSearch();
+            this.checkCity();
 
-            this.addcites();
-            this.removeCites()
-        },
-        
-        addcites:function(){
-            $('.changed-places input:checkbox').click(function(){
-                $('.add-place').removeClass('icon-add').addClass('icon-check').css({'color':'green'});
-                $('#search').val('');
-            })
         },
 
-        removeCites:function(){
-            $('.hide-menu').click(function(){
-                  function delay(){
-                      $('#search').val('').addClass('hide');
-                      $('.add-place').removeClass('icon-check').addClass('icon-add').css({'color':'white'});
-                      $('.town-weather').remove();
-                  }
-                 setTimeout(delay,2000);
+       startSearch:function(){
+           $('.add-place').click(function(){
+               $('#search').removeClass('hide');
+           })
+       },
 
-            })
-        }
+
+       checkCity:function(){
+           $('.wrap-check-box :checkbox').change(function(){
+               $('.remove-place').removeClass('icon-delete').addClass('icon-check')
+           })
+       },
+
+       sendQuery:function(){
+           $('.remove-place').click(function(){
+               $(this).css({'color':'green'});
+               $(this).removeClass('icon-check').addClass('icon-delete').css({'color':'white'});
+
+
+               $('.wrap-check-box input:checked').each(function(){
+                   var id=$(this).next().html();
+                   EventBus.trigger('add',id);
+
+
+               });
+
+               $('.town-weather').remove();
+               $('#search').val('');
+           });
+
+
+       }
+
 
 
     });

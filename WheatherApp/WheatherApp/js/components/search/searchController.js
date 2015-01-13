@@ -39,14 +39,20 @@ define('components/search/searchController',[
 
        searchCites:function(){
            var selfSearchCites=this;
-           $('#search').on('input',function(){
-
+           $('#search').on('keyup',function(){
            var str=$(this).val();
            var places=new Model(str);
            $.when(places.promise).done(function(){
-              selfSearchCites.view.render(places.filterData);
+              selfSearchCites.view.render(places);
           });
           });
+       },
+
+       checkCity:function(){
+           $('.wrap-check-box input:checkbox').each(function(){
+               alert('aaa');
+               $('.remove-place').removeClass('icon-delete')
+           })
        }
 
     });

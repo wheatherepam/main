@@ -19,9 +19,7 @@ define(['Vendor',
                 this.city=null;
                 this.cord = null;
                 this.forecast=null;
-                // 8888888888888
                 this.promise = $.Deferred();
-                /// промис
                 this.initialize(id,city);
             },
 
@@ -70,9 +68,9 @@ define(['Vendor',
 
                 $.getJSON(url, function (data, status) {
                     self.forecast = data;
-                    //88888888888
+
                     self.promise.resolve();
-                    // если все ок то мы его "срабатываем" 
+
                 })
                     .fail(function (data, status) {
                         console.log(status + " error");

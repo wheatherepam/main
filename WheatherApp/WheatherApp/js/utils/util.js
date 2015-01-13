@@ -85,8 +85,10 @@ define("utils/util", [
         });
     };
 
+    var EventBus=new EventEmitter();
+
     return {
         'Class': Class,
-        'EventEmitter': EventEmitter
+        'EventBus': EventBus
     };
 });

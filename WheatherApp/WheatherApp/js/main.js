@@ -5,9 +5,8 @@ require.config({
         'jquery': 'libs/jquery-1.11.2',
         'lodash': 'libs/lodash',
         'text': 'libs/text',
-        'sidebar':'utils/sidebar'
-        //'moment':'libs/moment',
-        //'moment_tz':'libs/moment-timezone'
+        'sidebar':'utils/sidebar',
+        'dateConvertor':'utils/Convertor/dateConvertor'
     },
 
     shim: {

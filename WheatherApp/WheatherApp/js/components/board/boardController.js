@@ -5,12 +5,15 @@ define('components/board/boardController',[
 
 ],function(BoardView,Vendor,Collection){
 
-        var $=Vendor.$;
-        var _=Vendor._;
+        var $=Vendor.$,
+            _=Vendor._,
+            Class=Vendor.util.Class,
+            EventBus=Vendor.util.EventBus,
+            Board;
 
-        var Class=Vendor.util.Class;
 
-        var Board=Class.extend({
+
+         Board=Class.extend({
 
             defaultOptions:{},
 
@@ -28,10 +31,13 @@ define('components/board/boardController',[
 
                var col=new Collection();
 
-               col.addItems([{id:'CjQwAAAADu00FCzvsJWyoO-OrxJFhKvBpLTysNuEBIwcRJ6Wh8jO_FwvekK_xmPMQjC27rbPEhBd7tkyN18sFNIb1Eniqc56GhQXcQn2H8yzeYZHi8w0abtCm0qO_w', city:'aaaa',country:'qqq'}]);
-               col.addItems([{id:'CjQwAAAADu00FCzvsJWyoO-OrxJFhKvBpLTysNuEBIwcRJ6Wh8jO_FwvekK_xmPMQjC27rbPEhBd7tkyN18sFNIb1Eniqc56GhQXcQn2H8yzeYZHi8w0abtCm0qO_w', city:'aaaa',country:'qqq'}]);
+                col.addItems([{id:'CjQwAAAADu00FCzvsJWyoO-OrxJFhKvBpLTysNuEBIwcRJ6Wh8jO_FwvekK_xmPMQjC27rbPEhBd7tkyN18sFNIb1Eniqc56GhQXcQn2H8yzeYZHi8w0abtCm0qO_w', city:'aaaa',country:'qqq'}]);
 
-               selfInit.view.render(col);
+                $.when(col.ready).done(function(){
+
+                    selfInit.view.render(col._colRep);
+                })
+
 
             }
         });

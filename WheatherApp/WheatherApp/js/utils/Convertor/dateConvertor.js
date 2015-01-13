@@ -1,32 +1,43 @@
-//define(['Vendor'],function(Vendor){
-//
-//   var moment=Vendor.moment,
-//       tz=Vendor.moment_tz;
-//
-//    return{
-//
-//        time: function (zone) {
-//            var h = 3600000; //  hour in ms
-//            if(moment().tz(zone).isDST()){
-//                return moment().tz(zone).format("H:mm");
-//            }
-//            return moment(moment() - h).tz(zone).format("H:mm");
-//        },
-//
-//        day: function (zone, msTime) {
-//            if(msTime){
-//                var t = moment(msTime).format("dddd");
-//                return t.slice(0,3).toUpperCase();
-//            }
-//            return moment().tz(zone).format("dddd");
-//        },
-//
-//        month: function (zone) {
-//            return moment().tz(zone).format("MMMM");
-//        },
-//
-//        tale: function (zone) {
-//            return moment().tz(zone).format("DD");
-//        }
-//    }
-//});
+define([], function () {
+    'use strict';
+
+    var Convertor = function () {
+
+    };
+
+    Convertor.getMinutes = function (ms, offset) {
+        this.offset = offset || 0;
+        var localTime = new Date(ms);
+        return new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getMinutes();
+    };
+
+    Convertor.getHours = function (ms, offset) {
+        this.offset = offset || 0;
+        var localTime = new Date(ms);
+        return new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getHours();
+    };
+
+    Convertor.getDate=function(ms,offset){
+        this.offset = offset || 0;
+        var localTime = new Date(ms);
+        return  new Date (localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset),  localTime.getUTCMinutes()).getDate();
+    };
+
+    Convertor.getWeekDay = function (ms, offset) {
+        this.offset = offset || 0;
+        var localTime = new Date(ms);
+        var param = new Date (localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset),  localTime.getUTCMinutes()).getDay();
+        var Week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return Week[param];
+    };
+
+    Convertor.getMonth = function (ms, offset) {
+        this.offset = offset || 0;
+        var localTime = new Date(ms);
+        var param = (new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes())).getMonth();
+        var Mounth = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        return Mounth[param];
+    };
+
+    return Convertor;
+});

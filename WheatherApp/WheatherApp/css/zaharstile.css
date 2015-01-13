@@ -38,7 +38,7 @@
 }
 
 .icon-add:before {
-    /*font-size: 2.5em;*/
+
     content: "a";
 }
 .icon-almost-full:before {
@@ -46,7 +46,7 @@
 }
 .icon-almost-old:before {
     content: "c";
-    font-size: 5em;
+
 }
 .icon-cloudy:before {
     content: "d";
@@ -55,7 +55,7 @@
     content: "e";
 }
 .icon-delete:before {
-    /*font-size: 2.5em;*/
+
     content: "f";
 }
 .icon-dust:before {
@@ -83,7 +83,7 @@
     content: "n";
 }
 .icon-menu:before {
-    /*font-size: 2.5em;*/
+
     content: "o";
 }
 .icon-clear-night:before {
@@ -109,7 +109,7 @@
 }
 .icon-settings:before {
     content: "x";
-    /*font-size: 2.5em;*/
+
 }
 .icon-shower:before {
     content: "y";
@@ -127,9 +127,11 @@
     content: "C";
 }
 .icon-sunrise:before {
+    margin-left: 0.35em;
     content: "D";
 }
 .icon-sunset:before {
+    margin-left: 0.35em;
     content: "E";
 }
 .icon-thundershowers-sunny:before {
@@ -161,6 +163,46 @@
 .icon-check:before {
     content: "M";
 }
+/*start*/
+.icon-none-moon:before {
+    content: "-";
+}
+
+.icon-young-moon:before {
+    content: "J";
+}
+
+.icon-grow-moon:before {
+    content: "k";
+}
+
+.icon-almost-full:before {
+    content: "b";
+}
+
+.icon-full-moon:before {
+    content: "p";
+}
+
+.icon-almost-old-moon:before {
+    content: "c";
+}
+
+.icon-old-moon:before {
+    content: "t";
+}
+
+
+/*
+['young-moon', 'grow-moon', 'almost-old', 'old-moon'];*/
+
+
+/*Finisth*/
+
+
+
+
+
 
 @font-face {
     font-family:'PTSans-Narrow';

@@ -23,21 +23,23 @@ define(['Vendor','./Autocomplete'],function(Vendor,Model){
                 var selfFilter=this;
                 var inputdata = new Model(str);
 
+
                 $.when(inputdata.promise).then(function(){
 
                     _(inputdata.forecast).forEach(function (key) {
                             var temp={};
-
                             var str=key.description;
                             var arr=str.split(',');
+
                             //defint using fields of model
                             temp.country='//'+arr[2];
+
                             temp.city=arr[0];
                             temp.id=key.id;
                             selfFilter.filterData.push(temp);
-                            selfFilter.promise.resolve();
-                        });
 
+                        });
+                    selfFilter.promise.resolve();
 
                 });
             }
