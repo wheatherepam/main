@@ -27,6 +27,7 @@ define(['Vendor','./Autocomplete'],function(Vendor,Model){
                 $.when(inputdata.promise).then(function(){
 
                     _(inputdata.forecast).forEach(function (key) {
+
                             var temp={};
                             var str=key.description;
                             var arr=str.split(',');
@@ -35,7 +36,8 @@ define(['Vendor','./Autocomplete'],function(Vendor,Model){
                             temp.country='//'+arr[2];
 
                             temp.city=arr[0];
-                            temp.id=key.id;
+                            temp.id=key.reference;
+
                             selfFilter.filterData.push(temp);
 
                         });

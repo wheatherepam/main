@@ -8,25 +8,28 @@ define([], function () {
     Convertor.getMinutes = function (ms, offset) {
         this.offset = offset || 0;
         var localTime = new Date(ms);
-        return new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getMinutes();
+        var param = new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getMinutes();
+        var result = (param < 10) ? '0'+param:param;
+        return result;
     };
 
     Convertor.getHours = function (ms, offset) {
         this.offset = offset || 0;
         var localTime = new Date(ms);
-        return new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getHours();
+        var result= (new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes())).getHours();
+        return result;
     };
 
-    Convertor.getDate=function(ms,offset){
+    Convertor.getDate = function (ms, offset) {
         this.offset = offset || 0;
         var localTime = new Date(ms);
-        return  new Date (localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset),  localTime.getUTCMinutes()).getDate();
+        return new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getDate();
     };
 
     Convertor.getWeekDay = function (ms, offset) {
         this.offset = offset || 0;
         var localTime = new Date(ms);
-        var param = new Date (localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset),  localTime.getUTCMinutes()).getDay();
+        var param = new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes()).getDay();
         var Week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         return Week[param];
     };

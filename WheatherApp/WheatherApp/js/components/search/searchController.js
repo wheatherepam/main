@@ -2,12 +2,13 @@ define('components/search/searchController',[
     './searchView',
     'Vendor',
     './Model/Model',
-    'sidebar'],function(SearchView,Vendor,Model){
+    ],function(SearchView,Vendor,Model){
     'use strict';
 
     var $=Vendor.$,
         _=Vendor._,
         Class=Vendor.util.Class,
+        EventBus=Vendor.util.EventBus,
         Search;
 
 
@@ -40,17 +41,16 @@ define('components/search/searchController',[
        searchCites:function(){
            var selfSearchCites=this;
            $('#search').on('keyup',function(){
-           var str=$(this).val();
-           var places=new Model(str);
-           $.when(places.promise).done(function(){
-              selfSearchCites.view.render(places);
-          });
+               var str=$(this).val();
+               var places=new Model(str);
+               $.when(places.promise).done(function(){
+                  selfSearchCites.view.render(places);
+              });
           });
        },
 
        checkCity:function(){
            $('.wrap-check-box input:checkbox').each(function(){
-               alert('aaa');
                $('.remove-place').removeClass('icon-delete')
            })
        }

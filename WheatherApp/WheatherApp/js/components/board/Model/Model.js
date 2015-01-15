@@ -45,7 +45,8 @@ define(['Vendor',
         promiseResponse: function (data) {
             var container = [],
                 main = data.forecast,
-                offset = main.offset,
+                offset = (main.offset-1),
+
                 cur = data.forecast.currently,
                 hourly = data.forecast.hourly,
                 daily = data.forecast.daily,
@@ -55,7 +56,6 @@ define(['Vendor',
             container.month = Convertor.getMonth(cur.time * 1000, offset);
             container.weekday = Convertor.getWeekDay(cur.time * 1000, offset);
             container.date = Convertor.getDate(cur.time * 1000, offset);
-            var moonparam = data.forecast.daily.data[0].moonPhase;
 
             container.moonPhase = (function (moonparam) {
                 var str;
@@ -71,13 +71,10 @@ define(['Vendor',
                     }
                 }
                     return str;
-            })(moonparam);
+            })(data.forecast.daily.data[0].moonPhase);
 
-            console.log(container.moonPhase);
-
-            container.sunriseTime = Convertor.getHours(daily.data[0].sunriseTime) + ' : ' + Convertor.getMinutes(daily.data[0].sunriseTime);
-            container.sunsetTime = Convertor.getHours(daily.data[0].sunsetTime) + ' : ' + Convertor.getMinutes(daily.data[0].sunsetTime);
-
+            container.sunriseTime = Convertor.getHours(daily.data[0].sunriseTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunriseTime*1000);
+            container.sunsetTime = Convertor.getHours(daily.data[0].sunsetTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunsetTime*1000);
 
             //Current wheather
             container.current = {};
@@ -112,7 +109,6 @@ define(['Vendor',
             selftPrResp.filterData = container;
             selftPrResp.promise.resolve();
         }
-
     });
 
     return Model;

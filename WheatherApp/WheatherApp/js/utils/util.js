@@ -87,6 +87,7 @@ define("utils/util", [
 
     var EventBus=new EventEmitter();
 
+
     return {
         'Class': Class,
         'EventBus': EventBus

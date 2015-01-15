@@ -16,7 +16,7 @@
                     </div>
                     <div class="main-info">
                         <div class="cur-weather">
-                            <span  class="fll cur-weath-icon icon-snow"></span>
+                            <span  class="fll cur-weath-icon icon-<%=obj.model.filterData.current.icon%>"></span>
                             <div class="fll cur-wrap-temp">
                                 <div class="cur-ent-temp">
                                     <span class="cur-val degree-val celje-val"><%=obj.model.filterData.current.temp%></span>
@@ -27,7 +27,7 @@
                         </div>
                         <div class="cur-moon">
                             <span data-icon="L" class="fll cur-moon-phase icon icon-<%=obj.model.filterData.moonPhase%>"></span>
-                            <span class="cur-moon-rise">6:20</span>
+                            <span class="cur-moon-rise"><%=obj.model.filterData.sunsetTime%></span>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                         </div>
                         <div class="fll oth sunset">
                             <span class="oth-font1 sunset-icon icon icon-sunset"></span>
-                            <span class="sunset-val oth-font2"><%=obj.model.filterData.sunriseTime%></span>
+                            <span class="sunset-val oth-font2"><%=obj.model.filterData.sunsetTime%></span>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,8 @@ require.config({
         'lodash': 'libs/lodash',
         'text': 'libs/text',
         'sidebar':'utils/sidebar',
-        'dateConvertor':'utils/Convertor/dateConvertor'
+        'dateConvertor':'utils/Convertor/dateConvertor',
+        'slider':'utils/Slider/jQueryUislider'
     },
 
     shim: {

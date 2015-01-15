@@ -1,16 +1,18 @@
 define('components/board/boardView', [
     'Vendor',
     'text!./boardTmpl.html',
+    'slider',
     './boardController',
     'sidebar'
 
-], function (Vendor, boardTemplate) {
+], function (Vendor, boardTemplate,Slider) {
     'use strict';
 
     var $ = Vendor.$,
         _ = Vendor._,
         Class = Vendor.util.Class,
         BoardView;
+
 
 
     BoardView = Class.extend({
@@ -29,15 +31,13 @@ define('components/board/boardView', [
         },
 
         render:function(col){
-
-
             var selfRender=this;
             this.$holder = $(selfRender.options.rootHolder);
 
                 _(col).forEach(function(item,i){
                     selfRender.boardTempl = _.template(boardTemplate);
                     selfRender.$holder.append(selfRender.boardTempl(item));
-                    console.log(item)
+                    //console.log(item)
                 });
 
 
