@@ -1,0 +1,24 @@
+<div class="town-weather">
+    <span class="town-weath-icon  fll icon-<%=obj.icon%>"></span>
+    <div class="town-wrap-temp fll">
+        <div class="town-temp">
+
+            <% if (obj.temp ){%>
+
+                <span class="town-val"><%= obj.temp +'&#176;' %></span>
+
+            <% } %>
+
+            <span class="town-measur"></span>
+        </div>
+    </div>
+    <div class="fll town-add-wrap">
+        <span class="town-name"><%= obj.city %></span>
+        <span class="fll cur-weather "><%= obj.country %></span>
+    </div>
+    <div class="fll  wrap-check-box">
+        <input type="checkbox"/>
+        <span id="id" class="hide"><%= obj.id %></span>
+    </div>
+
+</div>

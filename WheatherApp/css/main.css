@@ -1,0 +1,491 @@
+input,
+textarea {
+  outline: none;
+}
+input:active,
+textarea:active {
+  outline: none;
+}
+:focus {
+  outline: none;
+}
+.hide {
+  display: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+h1,
+h2,
+h3,
+p {
+  font-family: "PTSuns Narrow";
+}
+html {
+  height: 100%;
+}
+body {
+  font-size: 15px;
+  height: 100%;
+  font-family: "PTSuns Narrow";
+  overflow: hidden;
+}
+.fll {
+  float: left;
+}
+.flr {
+  float: right;
+}
+#wrap {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+#wrap main {
+  position: relative;
+  width: 70%;
+}
+#wrap main .gallery {
+  height: 58em;
+}
+#wrap main .gallery .gallery-item {
+  width: 90em;
+  display: inline-block;
+}
+#wrap .settings {
+  background: #081322 ;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  right: -32%;
+  width: 32%;
+  -webkit-transition: right 1s ease-out 0s;
+}
+#wrap .settings .left-wrap-iphone {
+  padding-left: 2.2em;
+}
+.refresh-wrap {
+  position: relative;
+  margin-left: 1.5em;
+  display: table;
+}
+.refresh-wrap .update-time {
+  font-size: 2em;
+  color: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+}
+.refresh-wrap .ref-icon {
+  position: absolute;
+  top: 8%;
+  font-family: "Sunny";
+  font-size: 3em;
+  display: table-cell;
+  vertical-align: middle;
+}
+.module-wrap .main-module {
+  float: left;
+  width: 46%;
+  margin-bottom: 1%;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+.module-wrap .add-module {
+  overflow: hidden;
+  width: 41%;
+  left: 35%;
+  background: rgba(255, 255, 255, 0.2);
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.main-add-info .curt-place {
+  font-size: 4.4em;
+  text-transform: uppercase;
+  letter-spacing: 0.39em;
+}
+.main-add-info .date-wrap {
+  margin-top: -0.2em;
+  letter-spacing: 0.29em;
+  font-size: 2.4em;
+}
+.main-add-info .date-wrap .cur-dat {
+  text-transform: uppercase;
+}
+.main-info {
+  overflow: hidden;
+  border-bottom: 0.3em solid rgba(255, 255, 255, 0.25);
+  padding-top: 2.6em;
+}
+.cur-weather {
+  display: inline-block;
+  overflow: hidden;
+}
+.cur-weather .cur-weath-icon {
+  font-size: 10.9em;
+}
+.cur-weather .cur-ent-temp {
+  padding-top: 0.9em;
+  padding-left: 1.8em;
+}
+.cur-weather .cur-ent-temp .cur-val {
+  font-size: 6em;
+}
+.cur-weather .cur-ent-temp .cur-measur {
+  font-size: 6em;
+}
+.cur-weather .cur-weather-val {
+  font-size: 1em;
+  margin-left: 1.4em;
+  margin-top: -1em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.cur-moon {
+  width: 5em;
+  float: right;
+  margin-right: 2.8em;
+}
+.cur-moon .cur-moon-phase {
+  font-size: 5em;
+  padding-top: 0.4em;
+}
+.cur-moon .cur-moon-rise {
+  position: relative;
+  font-size: 2em;
+  top: -0.5em;
+}
+.cur-whole-day {
+  padding-top: 1.6em;
+  overflow: hidden;
+  width: 100%;
+}
+.wheather-by-hours {
+  padding-bottom: 1.7em;
+  overflow: hidden;
+  width: 250em;
+}
+.cur-by-hourse {
+  width: 10em;
+}
+.cur-by-hourse .cur-per-hour {
+  font-size: 1.5em;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.cur-by-hourse .cur-per-wheather {
+  font-size: 4em;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.cur-by-hourse .cur-per-temp-bh {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: -1.3em;
+}
+.cur-by-hourse .cur-per-temp-bh .cur-val-bh {
+  font-size: 3em;
+}
+.cur-by-hourse .cur-per-temp-bh .cur-measur-bh {
+  font-size: 3em;
+}
+#scrollbar {
+  position: relative;
+  top: -1em;
+}
+#scrollbar .strike-s:after {
+  margin-left: 24%;
+}
+.other-opt {
+  border: none;
+  overflow: hidden;
+  padding-top: 2.4em;
+}
+.oth {
+  font-family: PTN57F;
+  width: 20%;
+  padding-left: 4%;
+  position: relative;
+}
+.oth .oth-font1 {
+  font-size: 4em;
+  display: table-row;
+  text-align: center;
+}
+.oth .oth-font2 {
+  position: absolute;
+  top: 1.5em;
+  font-size: 2.7em;
+  display: table-row;
+  text-align: center;
+}
+.wind {
+  position: relative;
+  top: -1em;
+}
+.wind .wind-icon {
+  font-size: 5.2em;
+}
+.wind .wind-val {
+  padding-top: 0.46em;
+}
+.wind .wind-measur {
+  font-size: 2em;
+  position: relative;
+  top: -0.5em;
+  margin-left: 1.2em;
+}
+.week-day {
+  overflow: hidden;
+  border-bottom: 0.1em solid rgba(255, 255, 255, 0.25);
+  padding-top: 1.2em;
+  font-family: "PTSuns Narrow";
+  font-size: 2em;
+}
+.week-day:last-child {
+  border-bottom: 0;
+}
+.week-day .day-wrap {
+  float: left;
+}
+.week-day .day-name {
+  vertical-align: top;
+  width: 3em;
+  display: inline-block;
+  font-size: 1em;
+}
+.week-day .day-icon {
+  position: relative;
+  top: -0.1em;
+  font-size: 2em;
+}
+.week-day .day-temp-wrap {
+  overflow: hidden;
+}
+.week-day .day-temp {
+  font-size: 1em;
+  display: inline-block;
+}
+.week-day .day-temp .min-temp {
+  display: inline-block;
+}
+.week-day .day-temp .temp-strike {
+  display: inline-block;
+  width: 4em;
+  border-radius: 0.4em;
+  height: 0.8em;
+  background: white;
+}
+.week-day .day-temp .max-temp {
+  display: inline-block;
+}
+.week-it-1 .day-temp {
+  margin-left: 4%;
+}
+.week-it-2 .day-temp {
+  margin-left: 1%;
+}
+.week-it-3 .day-temp {
+  margin-left: 8%;
+}
+.week-it-4 .day-temp {
+  margin-left: 5%;
+}
+.week-it-5 .day-temp {
+  margin-left: -0.5%;
+}
+.week-it-6 .day-temp {
+  margin-left: 1%;
+}
+.week-it-7 .day-temp {
+  margin-left: 3%;
+}
+#town-count-wrap {
+  text-align: center;
+  margin-top: 3%;
+}
+#town-count-wrap ul {
+  display: inline-block;
+  margin: 0 auto;
+}
+#town-count-wrap ul li {
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  border: 0.2em solid white;
+  margin-right: 1em;
+  float: left;
+  list-style-type: none;
+}
+.add-drop-town {
+  border-bottom: 0.3em solid #6b6d7a;
+  padding-top: 3%;
+}
+.add-drop-town:after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 100%;
+  clear: both;
+}
+.add-drop-town .add-drop-wrap-1 {
+  width: 77%;
+}
+.add-drop-town .add-drop-wrap-1 .hide-menu {
+  font-size: 3em;
+  position: relative;
+  right: 20%;
+}
+.add-drop-town .add-drop-wrap-1 #search {
+  color: red;
+  width: 80%;
+  font-size: 1em;
+  position: relative;
+  top: -1.3em;
+  margin-left: 0.9em;
+  border-radius: 1.5em;
+  height: 2em;
+  text-indent: 2em;
+  text-transform: uppercase;
+}
+.add-drop-town .add-drop-wrap-2 {
+  font-size: 2.5em;
+}
+.changed-places {
+  height: 40%;
+}
+.town-weather {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 0.3em solid #505965;
+  padding: 1em ;
+}
+.town-weather .town-weath-icon {
+  padding-right: 0.2em;
+  font-size: 5em;
+  color: #ffffff;
+  opacity: 0.5;
+}
+.town-weather .town-wrap-temp .town-temp {
+  font-size: 4em;
+  padding-right: 0.4em;
+}
+.town-weather .town-wrap-temp .town-temp .town-measur {
+  position: relative;
+  left: -0.2em;
+}
+.town-weather .town-add-wrap {
+  display: table;
+}
+.town-weather .town-add-wrap .town-name {
+  font-size: 2em;
+  display: table-row;
+  text-align: left;
+}
+.town-weather .town-add-wrap .cur-weather {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  position: relative;
+  top: 4px;
+}
+.town-weather .wrap-check-box {
+  position: absolute;
+  right: 2em;
+  top: 2em;
+}
+.town-weather .wrap-check-box input {
+  font-size: 1em;
+  width: 1.5em;
+  height: 1.5em;
+}
+.bot-wrap {
+  background: #152132;
+  width: 100%;
+  padding-bottom: 1em;
+  position: absolute;
+  right: 0.1%;
+  bottom: 0;
+}
+.main-set {
+  padding-bottom: 1.5em;
+  font-family: "PTSuns Narrow";
+}
+.main-set .change-measure {
+  padding-top: 4px;
+  overflow: hidden;
+  border-bottom: 3px solid #505965;
+}
+.main-set .meas-wrap {
+  cursor: pointer;
+  font-size: 3em;
+  opacity: 0.5;
+}
+.main-set .meas-wrap #change-c {
+  border-right: 2px solid #505965;
+  padding-right: 1.13em;
+  padding-left: 1em;
+}
+.main-set .meas-wrap #change-f {
+  padding-left: 0.5em;
+}
+.main-set .set {
+  font-size: 3em;
+  padding-right: 20px;
+  padding-top: 0.2em;
+}
+.show-for {
+  padding-bottom: 1.5em;
+  text-transform: uppercase;
+  border-bottom: 3px solid #505965;
+}
+.show-for .show-update-name {
+  margin-left: 2%;
+  font-size: 1.5em;
+  opacity: 0.25;
+}
+.show-for #show-for-slider .runner-c {
+  margin-left: 15%;
+}
+.show-for #show-for-slider .strike-c:after {
+  margin-left: 20%;
+}
+.show-every {
+  padding-top: 1.5em;
+  padding-bottom: 2em;
+}
+.show-every .show-update-name {
+  text-transform: uppercase;
+  margin-left: 1em;
+  font-size: 1.5em;
+  opacity: 0.25;
+}
+.show-every #show-every-slider .strike-c:after {
+  margin-left: 4%;
+}
+.checked-unit {
+  color: #ff4200;
+}
+.leftmove {
+  right: 0 !important;
+  -webkit-transition: right 1s ease-out 0s;
+}
+.rightmove {
+  right: 0 !important;
+  -webkit-transition: right 1s ease-out 0s;
+}
+.bx-pager {
+  padding-left: 40%;
+  padding-top: 2%;
+  overflow: hidden;
+}
+.bx-pager-item {
+  float: left;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  margin-right: 20px;
+}
