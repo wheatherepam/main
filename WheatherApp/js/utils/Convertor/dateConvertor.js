@@ -6,11 +6,11 @@ define([], function () {
     };
 
     Convertor.getMinutes = function (ms, offset) {
-        this.offset = offset || 0;
+
 
         var localTime = new Date(ms);
 
-        var time = new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + this.offset), localTime.getUTCMinutes());
+        var time = new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + offset), localTime.getUTCMinutes());
 
         var getMin=time.getMinutes();
 
@@ -21,6 +21,7 @@ define([], function () {
     };
 
     Convertor.getHours = function (ms, offset) {
+
         var localTime = new Date(ms);
 
         var param= new Date(localTime.getUTCFullYear(), localTime.getUTCMonth(), localTime.getUTCDate(), (localTime.getUTCHours() + offset), localTime.getUTCMinutes());

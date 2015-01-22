@@ -42,14 +42,14 @@ define(['Vendor',
         },
 
         promiseResponse: function (data) {
+            console.log(data);
             var container = [],
                 main = data.forecast,
-                offset = main.offset-1,
-
-                cur = data.forecast.currently,
-                hourly = data.forecast.hourly,
-                daily = data.forecast.daily,
-                selftPrResp = this;
+                       offset = Math.floor(main.offset),
+                        cur = data.forecast.currently,
+                        hourly = data.forecast.hourly,
+                        daily = data.forecast.daily,
+                        selftPrResp = this;
 
             //Main wheather info
             container.month = Convertor.getMonth(cur.time * 1000, offset);
@@ -72,8 +72,8 @@ define(['Vendor',
                     return str;
             })(data.forecast.daily.data[0].moonPhase);
 
-            container.sunriseTime = Convertor.getHours(daily.data[0].sunriseTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunriseTime*1000);
-            container.sunsetTime = Convertor.getHours(daily.data[0].sunsetTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunsetTime*1000);
+            container.sunriseTime = Convertor.getHours(daily.data[0].sunriseTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunriseTime*1000,offset);
+            container.sunsetTime = Convertor.getHours(daily.data[0].sunsetTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunsetTime*1000,offset);
 
             //Current wheather
             container.current = {};
