@@ -36,8 +36,11 @@ define(['Vendor', './Autocomplete'], function (Vendor, Model) {
                     var arr = str.split(',');
 
                     //defint using fields of model
-                    temp.country = '//' + arr[2];
-                    temp.city = arr[0];
+
+                    temp.country = '//' + key.terms[key.terms.length-1].value;
+
+                    var preCity=arr[0].split(' ');
+                    temp.city =key.terms[0].value;
                     temp.id = key.reference;
                     selfFilter.filterData.push(temp);
 

@@ -8,7 +8,9 @@ require.config({
         'text': 'libs/text',
         'dateConvertor':'utils/Convertor/dateConvertor',
         'slider':'utils/Slider/jQueryUislider',
-        'bxSlider':'libs/bxslider'
+        'bxSlider':'libs/bxslider',
+        'touchPunch':'libs/jquery.ui.touch-punch.min',
+        'hammer':'libs/hammer'
     },
     shim: {
         'jquery': {
@@ -21,6 +23,15 @@ require.config({
 
         'jqueryUI': {
             deps: ['jquery']
+        },
+
+        'hammer':{
+            deps: ['jquery',
+                'jqueryUI']
+        },
+        'touchPunch':{
+            deps: ['jquery',
+                'jqueryUI']
         },
 
         'lodash': {

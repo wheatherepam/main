@@ -2,7 +2,7 @@ define('components/search/searchController',[
     './searchView',
     'Vendor',
     './Model/Model'
-    ],function(SearchView,Vendor,Model){
+],function(SearchView,Vendor,Model){
     'use strict';
 
     var $=Vendor.$,
@@ -13,7 +13,7 @@ define('components/search/searchController',[
 
 
 
-   Search=Class.extend({
+    Search=Class.extend({
 
         defaultOptions:{},
 
@@ -38,129 +38,146 @@ define('components/search/searchController',[
             this.getAddingCites();
         },
 
-       /*
-        *Get cites from Autocomplete
-        **/
+        /*
+         *Get cites from Autocomplete
+         **/
         searchCites:function(){
-           $('#town-weather').remove();
+            $('#town-weather').remove();
 
-           var selfSearchCites=this;
+            var selfSearchCites=this;
 
-           $('#search').on('keyup',function(){
+            $('#search').on('keyup',function(){
 
-               var str=$(this).val();
-               var places=new Model(str);
-               $.when(places.promise).done(function(){
+                var str=$(this).val();
+                var places=new Model(str);
+                $.when(places.promise).done(function(){
 
-                  selfSearchCites.view.render(places);
-              });
+                    selfSearchCites.view.render(places);
+                });
 
-           });
-       },
+            });
+        },
 
-       /*
-        * Select cites
-        * */
-       checkCites:function(){
-           //Check adding cites
-           $('.wrap-check-box :checkbox').change(function () {
-               $('.remove-place').removeClass('icon-delete').addClass('icon-check').css({color:'grey'});
-           });
-       },
+        /*
+         * Select cites
+         * */
+        checkCites:function(){
 
-       /*
-        *Add cites to the board Collection
-        **/
-       addCites: function () {
-
-           $('.add-place').click(function () {
-
-               $(this).css({'color': 'green'});
-
-               var sendArray = [];
-
-               if($('.wrap-check-box input:checked')){
-
-                   $('.wrap-check-box input:checked').each(function () {
-                       var temp = {};
-                       temp.id = $(this).next().html();
-                       temp.city = $(this).parent().prev().children('.town-name').html();
-                       sendArray.push(temp);
-                   });
-               }
-
-               //Work with dom elements
-               $(this).css({'color':'red'});
-
-               $('#search').val('');
-
-               //Sent cites to dashboard
-               EventBus.trigger('add', sendArray,'add');
-           });
-       },
-
-       /*
-        *Get cites from the board Collection
-        **/
-       getAddingCites:function(){
-
-           var selfSavingCites=this;
-
-           EventBus.on('getdata',function(data){
-
-               var filterData=[];
-               _.forEach(data,function(item){
-                   var temp={};
-                   temp.id=item.id;
-                   temp.city=item.city;
-                   temp.icon=item.model.filterData.current.icon;
-                   temp.temp=item.model.filterData.current.temp;
-                   filterData.push(temp);
-               });
-            selfSavingCites.view.renderAddedCites(filterData);
-           });
-       },
+            $('body').on('click','.town-weather',function(event) {
+                if(!$(event.target).is(':checkbox')){
+                    var parent = $(event.target).closest('.town-weather'),
+                        concreteCheckbox = parent.find(':checkbox');
 
 
-       /*
-        *Update  cites in the board Collection
-        **/
-       updateCites:function(){
+                    if (!concreteCheckbox.prop('checked')) {
+                        concreteCheckbox.prop('checked', true);
+                    } else {
+                        concreteCheckbox.prop('checked', false)
+                    }
+                }
+            });
 
-           $('.remove-place').click(function(){
+            //Check adding cites
+            $('.wrap-check-box :checkbox').change(function () {
+                $('.remove-place').removeClass('icon-delete').addClass('icon-check').css({color:'grey'});
+            });
 
-               var sendArray = [];
 
-               $('.wrap-check-box input:checked').each(function () {
-                   //$('.town-weather').remove();
-                   $('gallery-item').remove();
-                   var id = $(this).next().html();
-                   sendArray.push(id);
-               });
+        },
 
-               EventBus.trigger('update',sendArray,'update');
-           });
-       },
-       //Print updated cites in Collection
-       getUpdateCites:function(){
-           var selfUpdate=this;
+        /*Add cites to the board Collection
+         **/
 
-           EventBus.on('updatedata',function(data){
+        addCites: function() {
 
-               var filterData=[];
-               _.forEach(data,function(item){
-                   var temp={};
-                   temp.id=item.id;
-                   temp.city=item.city;
-                   temp.icon=item.model.filterData.current.icon;
-                   temp.temp=item.model.filterData.current.temp;
-                   filterData.push(temp);
-               });
+            $('.add-place').click(function () {
 
-               selfUpdate.view.renderAddedCites(filterData);
-           });
-       }
+                $(this).css({'color': 'green'});
+
+                var sendArray = [];
+
+                if($('.wrap-check-box input:checked')){
+
+                    $('.wrap-check-box input:checked').each(function () {
+                        var temp = {};
+                        temp.id = $(this).next().html();
+                        temp.city = $(this).parent().prev().children('.town-name').html();
+                        sendArray.push(temp);
+                    });
+                }
+
+                //Work with dom elements
+                $(this).css({'color':'red'});
+
+                $('#search').val('');
+
+                //Sent cites to dashboard
+                EventBus.trigger('add', sendArray,'add');
+            });
+        },
+
+        /*
+         *Get cites from the board Collection
+         **/
+        getAddingCites:function(){
+
+            var selfSavingCites=this;
+
+            EventBus.on('getdata',function(data){
+
+                var filterData=[];
+                _.forEach(data,function(item){
+                    var temp={};
+                    temp.id=item.id;
+                    temp.city=item.city;
+                    temp.icon=item.model.filterData.current.icon;
+                    temp.temp=item.model.filterData.current.temp;
+                    filterData.push(temp);
+                });
+                selfSavingCites.view.renderAddedCites(filterData);
+            });
+        },
+
+
+        /*
+         *Update  cites in the board Collection
+         **/
+        updateCites:function(){
+
+            $('.remove-place').click(function(){
+
+                var sendArray = [];
+
+                $('.wrap-check-box input:checked').each(function () {
+                    //$('.town-weather').remove();
+                    $('gallery-item').remove();
+                    var id = $(this).next().html();
+                    sendArray.push(id);
+                });
+
+                EventBus.trigger('update',sendArray,'update');
+            });
+        },
+        //Print updated cites in Collection
+        getUpdateCites:function(){
+            var selfUpdate=this;
+
+            EventBus.on('updatedata',function(data){
+
+                var filterData=[];
+                _.forEach(data,function(item){
+                    var temp={};
+                    temp.id=item.id;
+                    temp.city=item.city;
+                    temp.icon=item.model.filterData.current.icon;
+                    temp.temp=item.model.filterData.current.temp;
+                    filterData.push(temp);
+                });
+
+                selfUpdate.view.renderAddedCites(filterData);
+            });
+        }
     });
 
-  return Search;
+    return Search;
 });

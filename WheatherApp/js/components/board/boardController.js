@@ -1,7 +1,10 @@
 define('components/board/boardController',[
        './boardView',
        'Vendor',
-       './Model/collection'
+       './Model/collection',
+        'touchPunch',
+       'hammer'
+
 ],function(BoardView,Vendor,Collection){
 
         var $=Vendor.$,
@@ -27,6 +30,8 @@ define('components/board/boardController',[
                 EventBus.on('add',this.col.ready, this.col);
                 EventBus.on('update',this.col.ready,this.col);
                 EventBus.on('getdata',this.view.render, this.view);
+                EventBus.on('changecelge',this.changeCelge,this);
+                EventBus.on('changefarengeit',this.changeFarengeit,this);
             },
 
              getCurrentWheather:function(){
@@ -86,7 +91,6 @@ define('components/board/boardController',[
                               var temp = {};
                               temp.city = desciption[1];
                               temp.id = data[0].reference;
-                              console.log(temp);
 
                               selfCurrent.col.ready(new Array(temp),'add');
 
@@ -106,11 +110,45 @@ define('components/board/boardController',[
              refresh:function(){
                  var selfRefresh=this;
                  $('body').on('click','.ref-icon',function(){
-                     $('.ref-icon').addClass('rotate')
+                     $('.ref-icon').addClass('rotate');
                     selfRefresh.col.refresh();
                  });
 
-             }
+             },
+
+             changeCelge:function(){
+                 var self=this;
+                 var changedWheather= _.clone(self.col._colRep);
+                changedWheather.forEach(function(item){
+                    item.model.filterData.current.temp=self.celgeConversion(item.model.filterData.current.temp);
+
+                    _.forEach(item.model.filterData.hourly,function(itm){
+                        itm.temp=self.celgeConversion(itm.temp);
+                        //itm.temp=this.celgeConversion(itm.temp);
+                    });
+
+                    _.forEach(item.model.filterData.week,function(itm){
+                        itm.maxTemp=self.celgeConversion(itm.maxTemp);
+                        //itm.temp=this.celgeConversion(itm.temp);
+                    });
+
+                    _.forEach(item.model.filterData.week,function(itm){
+                        itm.minTemp=self.celgeConversion(itm.minTemp);
+                        //itm.temp=this.celgeConversion(itm.temp);
+                    });
+
+
+                });
+                 EventBus.trigger('getdata',changedWheather);
+             },
+
+             changeFarengeit:function(){
+                 EventBus.trigger('getdata',this.col._colRep,this.col);
+             },
+
+            celgeConversion:function(param){
+                return parseInt((param-32)/(5/9));
+            }
         });
 
   return Board;

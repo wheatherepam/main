@@ -25,7 +25,6 @@ define(['Vendor','./Model'],function(Vendor,Model){
         },
 
         addItems:function(obj){
-            console.log("addItems",obj)
             var selfAdd=this,
                 promiseArr=[];
 
@@ -52,7 +51,7 @@ define(['Vendor','./Model'],function(Vendor,Model){
             $.when.apply($, promiseArr).done(function(){
 
                 selfAdd.rd.resolve();
-
+                console.log(selfAdd._colRep)
                 EventBus.trigger('getdata',selfAdd._colRep);
 
             });
@@ -77,7 +76,7 @@ define(['Vendor','./Model'],function(Vendor,Model){
 
 
              this._colRep.length=0;
-            console.log(this.updateData);
+             console.log(this.updateData);
 
              this.updateData.forEach(function(item){
 

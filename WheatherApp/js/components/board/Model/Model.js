@@ -42,14 +42,14 @@ define(['Vendor',
         },
 
         promiseResponse: function (data) {
-            console.log(data);
             var container = [],
                 main = data.forecast,
-                       offset = Math.floor(main.offset),
-                        cur = data.forecast.currently,
-                        hourly = data.forecast.hourly,
-                        daily = data.forecast.daily,
-                        selftPrResp = this;
+                offset = main.offset-1,
+
+                cur = data.forecast.currently,
+                hourly = data.forecast.hourly,
+                daily = data.forecast.daily,
+                selftPrResp = this;
 
             //Main wheather info
             container.month = Convertor.getMonth(cur.time * 1000, offset);
@@ -69,7 +69,7 @@ define(['Vendor',
                         str = moonState[phse.length - 1];
                     }
                 }
-                    return str;
+                return str;
             })(data.forecast.daily.data[0].moonPhase);
 
             container.sunriseTime = Convertor.getHours(daily.data[0].sunriseTime*1000,offset) + ' : ' + Convertor.getMinutes(daily.data[0].sunriseTime*1000,offset);
@@ -84,6 +84,22 @@ define(['Vendor',
             container.current.humidity = parseInt(cur.humidity * 100)  + '%';
             container.current.windSpeed = parseInt(cur.windSpeed);
             container.current.windBearing = cur.windBearing;
+            container.current.windDirection=(function(degree){
+                var str;
+                var windState = ['N','NE','E','SE','S','WS','W','NW'];
+                var phse = [0, 45, 90, 135, 180, 225, 270,315];
+                for (var i = 0; i <= phse.length; i++) {
+                    if (degree <= phse[i]) {
+                        str = windState[i];
+                        break;
+                    }
+                    if (degree >= phse[7]) {
+                        str = windState[phse.length - 1];
+                    }
+                }
+                return str;
+            })( container.current.windBearing);
+
 
             //hourlu wheather
             container.hourly = [];
@@ -103,7 +119,25 @@ define(['Vendor',
                 container.week[i-1].icon = daily.data[i].icon;
                 container.week[i-1].maxTemp = parseInt(daily.data[i].temperatureMax);
                 container.week[i-1].minTemp = parseInt(daily.data[i].temperatureMin);
+                /*** Define temperature variations*/
+                container.week[i-1].variation=parseInt(Math.abs((container.week[i-1].minTemp/(container.week[i-1].maxTemp))*100)/2);
             }
+
+            /**
+             * Define temperature variation*/
+            //define max temp in week
+            var maxTempContainter=[];
+            _.forEach(container.week,function(item){
+                maxTempContainter.push(item.maxTemp);
+            });
+
+            var maxTemp= _.max(maxTempContainter);
+
+            _.forEach(container.week,function(item){
+                item.marg=Math.abs(maxTemp-item.maxTemp);
+            });
+
+
             selftPrResp.filterData = container;
             selftPrResp.promise.resolve();
         }
