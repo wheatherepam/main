@@ -1,6 +1,6 @@
 define('app/app',
     ['../components/page/pageController',
-     '../components/board/boardController',
+     '../components/board/nBoardController',
      '../components/search/searchController',
      '../components/settings/settingsController'
 

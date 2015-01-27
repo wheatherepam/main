@@ -70,6 +70,7 @@ define(['Vendor','./Model'],function(Vendor,Model){
             EventBus.trigger('getdata',result);
         },
 
+
         refresh:function(){
              var selfRef=this,
                  promiseArr=[];

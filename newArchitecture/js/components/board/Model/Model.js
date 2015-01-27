@@ -87,7 +87,7 @@ define(['Vendor',
             container.current.windDirection=(function(degree){
                 var str;
                 var windState = ['N','NE','E','SE','S','WS','W','NW'];
-                var phse = [0, 45, 90, 135, 180, 225, 270,315];
+                var phse = [ 0, 45, 90, 135, 180, 225, 270,315];
                 for (var i = 0; i <= phse.length; i++) {
                     if (degree <= phse[i]) {
                         str = windState[i];
@@ -136,7 +136,6 @@ define(['Vendor',
             _.forEach(container.week,function(item){
                 item.marg=Math.abs(maxTemp-item.maxTemp);
             });
-
 
             selftPrResp.filterData = container;
             selftPrResp.promise.resolve();

@@ -61,6 +61,7 @@
                         <span class="oth-font2 hum-val"><%=obj.model.filterData.current.humidity%></span>
                     </div>
                     <div class="fll oth wind">
+                        <span class="wind-rose"><%= obj.model.filterData.current.windDirection %></span>
                         <span  style='transform: rotate(<%= obj.model.filterData.current.windBearing %>deg)' class="oth-font1 wind-icon icon icon-wind-direction "></span>
                         <span class="oth-font2 wind-val"><%=obj.model.filterData.current.windSpeed%></span>
                         <span class="wind-measur">m/c</span>
