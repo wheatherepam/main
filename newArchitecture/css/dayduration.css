@@ -1,7 +1,0 @@
-@-webkit-keyframes daydur {
-    0%{ background: #166eef;}
-    100%{ background:  #080b22;}
-}
-#wrap{
-    -webkit-animation: 200s daydur linear 0s infinite;
-}

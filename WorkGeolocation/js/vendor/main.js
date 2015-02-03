@@ -8,6 +8,5 @@ define('Vendor',[
             '$':core.$,
             '_':core._,
             'util':util
-
         };
 });

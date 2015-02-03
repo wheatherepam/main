@@ -6,6 +6,7 @@ define('components/page/pageController',[
     var $=Vendor.$,
         _=Vendor._,
         Class=Vendor.util.Class,
+        EventBus=Vendor.util.EventBus,
         Page;
 
 
@@ -23,6 +24,7 @@ define('components/page/pageController',[
 
             this.view=new PageView({rootHolder: this.options.rootHolder});
             this.attachEvent();
+            EventBus.on('dayduration',this.dayduration,this)
         },
 
         attachEvent:function(){
@@ -48,6 +50,7 @@ define('components/page/pageController',[
                 changeSideBar();
             });
         }
+
     });
 
     return Page;

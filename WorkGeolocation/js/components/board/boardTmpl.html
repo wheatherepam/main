@@ -1,4 +1,6 @@
-<li class="gallery-item">
+
+
+<li class="gallery-item" dayduration="<%=obj.model.filterData.dayduration%>" currentDayPhaze="<%=obj.model.filterData.currentDayPhaze%>" >
     <div class="refresh-wrap">
         <time class="update-time"><%=obj.model.filterData.current.time%></time>
         <span data-icon="L" class="ref-icon icon"></span>
@@ -88,19 +90,19 @@
                 <div class="day-temp-wrap"  >
                     <div class="day-temp" style="margin-left:<%=obj.model.filterData.week[0].marg%>%">
                         <div class="min-temp">
-                            <span class="fll day-val  "><%=obj.model.filterData.week[0].maxTemp%></span>
+                            <span class="fll day-val  "><%=obj.model.filterData.week[0].minTemp%></span>
                             <span class="day-deg">&#176;</span>
                         </div>
                         <div class="temp-strike" style="width:<%=obj.model.filterData.week[0].variation%>%;"></div>
                         <div class="max-temp">
-                            <span class="day-val "><%=obj.model.filterData.week[0].minTemp%>&#176;</span>
+                            <span class="day-val "><%=obj.model.filterData.week[0].maxTemp%>&#176;</span>
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <% for( var i=1;i < obj.model.filterData.week.length ;i++ ){ %>
+            <% for( var i=1;i < obj.model.filterData.week.length-1 ;i++ ){ %>
 
             <div class="week-day week-it-1">
                 <div class="day-wrap">
@@ -110,12 +112,12 @@
                 <div class="day-temp-wrap" >
                     <div class="day-temp" style="margin-left:<%=obj.model.filterData.week[i].marg%>%">
                         <div class="min-temp">
-                            <span class="fll day-val "><%=obj.model.filterData.week[i].maxTemp%></span>
+                            <span class="fll day-val "><%=obj.model.filterData.week[i].minTemp%></span>
                             <span class="day-deg">&#176;</span>
                         </div>
                         <div class="temp-strike" style="width:<%=obj.model.filterData.week[i].variation%>%"> </div>
                         <div class="max-temp">
-                            <span class="day-val "><%=obj.model.filterData.week[i].minTemp%>&#176;</span>
+                            <span class="day-val "><%=obj.model.filterData.week[i].maxTemp%>&#176;</span>
                         </div>
                     </div>
                 </div>
@@ -126,5 +128,6 @@
         </div>
     </div>
 </li>
+
 
 

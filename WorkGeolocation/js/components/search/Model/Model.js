@@ -1,4 +1,4 @@
-define(['Vendor', './Autocomplete'], function (Vendor, Model) {
+define(['Vendor', './../../services/Autocomplete'], function (Vendor, Model) {
 
     var Class = Vendor.util.Class,
         _ = Vendor._,

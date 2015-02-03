@@ -1,5 +1,5 @@
 define(['Vendor',
-    'app/Appikey'], function (Vendor, Api) {
+    '../../app/Appikey'], function (Vendor, Api) {
 
     'use strict';
 
@@ -33,7 +33,6 @@ define(['Vendor',
             **Get data from Api
             */
             _getData: function (id) {
-
                 var self = this,
                     map = $('<div>').get(0),
                     service,

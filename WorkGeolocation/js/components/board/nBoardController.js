@@ -1,7 +1,7 @@
 define('components/board/nBoardController',[
     './boardView',
     'Vendor',
-    './Model/newCollection',
+    './Model/Collection',
     './Model/Model',
     'touchPunch'
 
@@ -17,7 +17,7 @@ define('components/board/nBoardController',[
     Board=Class.extend({
 
         constructor:function(options){
-            this.options= options;
+            this.options = options;
             this.initialize();
         },
 
@@ -130,26 +130,25 @@ define('components/board/nBoardController',[
                             var temp = {};
                             temp.city = desciption[1];
                             temp.id = data[0].reference;
-                            temp.model=new Model(temp.city,temp.id);
+                            temp.model=new Model(temp.id);
 
                             $.when(temp.model.promise).done(function(){
+
                                 selfCurrent.col.addItems(temp);
                                 EventBus.trigger('getdata', selfCurrent.col._colRep);
                                 }
                             );
-
-
                         } else {
                             throw new Error('Server error, check your connection ' + code);
                         }
                     });
                 }
-
             }
         },
 
         attachEvents:function(){
             this.refresh();
+            this.dayduration();
         },
 
         refresh:function(){
@@ -191,8 +190,15 @@ define('components/board/nBoardController',[
 
         changeCelge:function(){
             var self=this;
-            var changedWheather= _.clone(self.col._colRep);
-            changedWheather.forEach(function(item){
+            var elem=this.col.getItems();
+
+           this.changedWheather= _.cloneDeep(this.col._colRep);
+           //this.changedWheather[0].model.filterData = $.extend({},this.col._colRep[0].model.filterData);
+
+
+
+            _(this.changedWheather).each(function(item){
+
                 item.model.filterData.current.temp=self.celgeConversion(item.model.filterData.current.temp);
 
                 _.forEach(item.model.filterData.hourly,function(itm){
@@ -209,10 +215,12 @@ define('components/board/nBoardController',[
                     itm.minTemp=self.celgeConversion(itm.minTemp);
                     //itm.temp=this.celgeConversion(itm.temp);
                 });
-
-
             });
-            EventBus.trigger('getdata',changedWheather);
+
+
+
+
+            EventBus.trigger('getdata',this.changedWheather);
         },
 
         changeFarengeit:function(){
@@ -220,8 +228,40 @@ define('components/board/nBoardController',[
         },
 
         celgeConversion:function(param){
-            return parseInt((param-32)/(5/9));
+            return parseInt((param-32)/1.8);
+        },
+
+        dayduration:function(){
+
+            $('body').on('click','.bx-pager-link.active',function(){
+                var number=$(this).attr('data-slide-index');
+                var curlayout= $('.gallery-item')[number];
+
+                var dayDuration=$(curlayout).attr('dayDuration')+'s';
+
+                var currentdayphaze=$(curlayout).attr('currentdayphaze')+'s';
+
+                console.log('dayDuration',dayDuration,'currentdayphaze',currentdayphaze);
+
+
+                $('#wrap').removeClass('anima');
+                setTimeout(function(){
+
+                    if(dayDuration!=currentdayphaze){
+                        $('#wrap').addClass('anima');
+                        $('.anima').css({'-webkit-animation-duration':dayDuration,'-webkit-animation-delay':-currentdayphaze});
+                    }
+
+
+                },100);
+
+            })
+
         }
+
+
+
+
     });
 
     return Board;

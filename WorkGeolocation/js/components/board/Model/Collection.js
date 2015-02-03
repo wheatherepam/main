@@ -31,32 +31,11 @@ define(['Vendor','./Model'],function(Vendor,Model){
 
         },
 
-
-        refresh:function(){
-            var selfRef=this,
-                promiseArr=[];
-
-
-            this._colRep.length=0;
-            this.updateData.forEach(function(item){
-
-                var temp={};
-                temp.id= item.id;
-                temp.city=item.city;
-                temp.model= new Model(temp.id, temp.city);
-                selfRef._colRep.push(temp);
-                promiseArr.push(temp.model.promise);
-            }.bind(this));
-
-            $.when.apply($, promiseArr).done(function(){
-
-                selfRef.rd.resolve();
-
-                EventBus.trigger('getdata',selfRef._colRep);
-
-            });
-
+        getItems:function(){
+            return this._colRep;
         }
+
+
     });
 
     return  Collection;

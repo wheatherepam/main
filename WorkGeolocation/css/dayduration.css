@@ -1,0 +1,11 @@
+@-webkit-keyframes daydur {
+    0%{ background: #166eef;}
+    100%{ background:  #080b22;}
+}
+.anima{
+    -webkit-animation: 0s daydur linear 0s infinite;
+}
+
+.anima2{
+    -webkit-animation: 5s daydur linear 0s infinite;
+}
